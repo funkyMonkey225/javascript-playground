@@ -1,3 +1,37 @@
+function printNumbers(start, end) {
+    while(start <= end) {
+        console.log(start);
+        start += 1;
+    }
+}
+
+function printSquare(size) {
+    var i = 1;
+    while (i <= size) {
+        console.log("*".repeat(size));
+        i += 1;
+    }
+}
+
+function printBox(width, height) {
+    console.log("*".repeat(width));
+    var i = 1;
+    while (i <= (height - 2)) {
+        var middle = [];
+        middle.push("*" + "*");
+        console.log(middle.join("i" * (height - 2)));
+        i += 1;
+    }
+    console.log("*".repeat(width));
+}
+
+function printBanner(text) {
+    var width = text.length;
+    console.log("*".repeat(width + 4));
+    console.log("*" + " " + text + " " + "*");
+    console.log("*".repeat(width + 4));
+}
+
 function leetSpeak(text) {
     var lettersToConvert = ["A", "E", "G", "I", "O", "S", "T"];
     var numbers = [4, 3, 6, 1, 0, 5, 7];
