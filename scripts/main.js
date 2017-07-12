@@ -22,3 +22,8 @@ function tipAmount(bill, service) {
         return undefined;
     }
 }
+
+function totalAmount(bill, service) {
+    var tip = tipAmount(bill, service);
+    return bill + tip;
+}
