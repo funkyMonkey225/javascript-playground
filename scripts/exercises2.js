@@ -17,9 +17,7 @@ function printBox(width, height) {
     console.log("*".repeat(width));
     var i = 1;
     while (i <= (height - 2)) {
-        var middle = [];
-        middle.push("*" + "*");
-        console.log(middle.join("i" * (height - 2)));
+        console.log("*" + " " * (height - 2) + "*");
         i += 1;
     }
     console.log("*".repeat(width));
@@ -30,6 +28,17 @@ function printBanner(text) {
     console.log("*".repeat(width + 4));
     console.log("*" + " " + text + " " + "*");
     console.log("*".repeat(width + 4));
+}
+
+function factors(number) {
+    var i = 1;
+    console.log("The factors of " + number + " are:")
+    while (i <= number) {
+        if (number % i === 0) {
+            console.log(i);
+        }
+        i += 1;
+    }
 }
 
 function leetSpeak(text) {
