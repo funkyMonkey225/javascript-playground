@@ -27,3 +27,8 @@ function totalAmount(bill, service) {
     var tip = tipAmount(bill, service);
     return bill + tip;
 }
+
+function splitAmount(bill, service, people) {
+    var total = totalAmount(bill, service);
+    return total / people;
+}
