@@ -1,3 +1,4 @@
+// prints numbers in any range to console
 function printNumbers(start, end) {
     while(start <= end) {
         console.log(start);
@@ -5,6 +6,7 @@ function printNumbers(start, end) {
     }
 }
 
+// prints a square composed of asterisks
 function printSquare(size) {
     var i = 1;
     while (i <= size) {
@@ -13,6 +15,7 @@ function printSquare(size) {
     }
 }
 
+// prints a hollow box composed of asterisks
 function printBox(width, height) {
     console.log("*".repeat(width));
     var i = 1;
@@ -23,6 +26,7 @@ function printBox(width, height) {
     console.log("*".repeat(width));
 }
 
+// prints user-inputted text surrounded by a banner
 function printBanner(text) {
     var width = text.length;
     console.log("*".repeat(width + 4));
@@ -30,6 +34,7 @@ function printBanner(text) {
     console.log("*".repeat(width + 4));
 }
 
+// prints factors of any number
 function factors(number) {
     var i = 1;
     console.log("The factors of " + number + " are:")
@@ -41,7 +46,8 @@ function factors(number) {
     }
 }
 
-function cipherDecipher(text, offset) {
+// uses Ceasar's Cipher to cipher any text with a given offset
+function cipher(text, offset) {
     var alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     var y = "";
     var cipherText = "";              
@@ -53,7 +59,7 @@ function cipherDecipher(text, offset) {
         var j = 0;
         while (j < alpha.length) {
             if (char === alpha[j]) {
-                if (j <= (offset-1)) {
+                if ((j + offset) <= (25)) {
                     y = alpha[j + offset];
                     cipherText = cipherText + y;
                     break;   
@@ -73,6 +79,41 @@ function cipherDecipher(text, offset) {
     console.log(cipherText);
 }
 
+// uses Ceasar's Cipher to decipher any text with a given offset
+function decipher(text, offset) {
+    var alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    var y = "";
+    var cipherText = "";              
+    var upperText = text.toUpperCase();
+    var i = 0;
+
+    while (i < text.length) {
+        var char = upperText[i];
+        var j = 0;
+        while (j < alpha.length) {
+            if (char === alpha[j]) {
+                if ((j - offset) >= (0)) {
+                    y = alpha[j - offset];
+                    cipherText = cipherText + y;
+                    break;   
+                } else {
+                    y = alpha[j + 26 - offset];
+                    cipherText = cipherText + y;
+                    break; 
+                }
+
+            } else if (j === alpha.length - 1) {
+                cipherText = cipherText + char;
+            }
+            j += 1;
+        }
+        i += 1;
+    }
+    console.log(cipherText);
+}
+
+
+// Converts any text to l337Speak
 function leetSpeak(text) {
     var lettersToConvert = ["A", "E", "G", "I", "O", "S", "T"];
     var numbers = [4, 3, 6, 1, 0, 5, 7];
@@ -95,6 +136,7 @@ function leetSpeak(text) {
     return translation;
 }
 
+// Extends long vowels in any text
 function longLongVowels(text) {
     var longVow = text.toUpperCase();
     var vowels = {"A": "AAAA", "E": "EEEE", "I":"IIII", "O":"OOOO", "U":"UUUU"};
@@ -118,55 +160,63 @@ function longLongVowels(text) {
     }
     return s; 
 }
-        
-    //     if (vowel === "A") {               
-    //         if (savedvowel === vowel) {
-    //             s = s + vowel.repeat(4);        
-    //         } else {                      
-    //             s = s + vowel;
-    //         }           
-    //         savedvowel = vowel;     
+
+// Another method of exending long vowels in any text
+function longLongVowels2(text) {
+    var longVow = text.toUpperCase();
+    var savedvowel = "";
+    var s = "";
+    var i = 0;
+    while (i < longVow.length) { 
+        if (vowel === "A") {               
+            if (savedvowel === vowel) {
+                s = s + vowel.repeat(4);        
+            } else {                      
+                s = s + vowel;
+            }           
+            savedvowel = vowel;     
             
-    //     } else if (vowel === "E") {
-    //         if (savedvowel === vowel) {
-    //             s = s + vowel.repeat(4);
-    //         } else {
-    //             s = s + vowel;
-    //         }
-    //         savedvowel = vowel;
+        } else if (vowel === "E") {
+            if (savedvowel === vowel) {
+                s = s + vowel.repeat(4);
+            } else {
+                s = s + vowel;
+            }
+            savedvowel = vowel;
 
-    //     } else if (vowel === "I") {
-    //         if (savedvowel === vowel) {
-    //             s = s + vowel.repeat(4);  
-    //         } else {
-    //             s = s + vowel;
-    //         }
-    //         savedvowel = vowel;
+        } else if (vowel === "I") {
+            if (savedvowel === vowel) {
+                s = s + vowel.repeat(4);  
+            } else {
+                s = s + vowel;
+            }
+            savedvowel = vowel;
 
-    //     } else if (vowel === "O") {
-    //         if (savedvowel === vowel) {
-    //             s = s + vowel.repeat(4);
-    //         } else {
-    //             s = s + vowel;
-    //         }
-    //         savedvowel = vowel;
+        } else if (vowel === "O") {
+            if (savedvowel === vowel) {
+                s = s + vowel.repeat(4);
+            } else {
+                s = s + vowel;
+            }
+            savedvowel = vowel;
 
-    //     } else if (vowel === "U") {
-    //         if (savedvowel === vowel) {
-    //             s = s + vowel.repeat(4);
-    //         } else {
-    //             s = s + vowel;
-    //         }
-    //         savedvowel = vowel;
-    //     } else {                       
-    //         s = s + vowel;
-    //         savedvowel = "";
-    //     }
-    //     i += 1;
-    // }
-    // console.log(s);          
+        } else if (vowel === "U") {
+            if (savedvowel === vowel) {
+                s = s + vowel.repeat(4);
+            } else {
+                s = s + vowel;
+            }
+            savedvowel = vowel;
+        } else {                       
+            s = s + vowel;
+            savedvowel = "";
+        }
+        i += 1;
+        }
+        console.log(s);
+    }          
 
-
+// Adds up number in any array
 function sumNumbers(numbers) {
     var i = 0;
     var total = 0;
@@ -177,6 +227,7 @@ function sumNumbers(numbers) {
     return total;
 }
 
+// Makes new array with only positive numbers from a given array
 function positiveNumbers(numbers) {
     var i = 0;
     var positives = [];
@@ -189,6 +240,7 @@ function positiveNumbers(numbers) {
     return positives;
 }
 
+// Adds any 2 matrices
 function matrixAdd(matrix1, matrix2) {
     var newMatrix = [];
     var i = 0;
@@ -204,6 +256,7 @@ function matrixAdd(matrix1, matrix2) {
     return newMatrix;
 }
 
+// Multiplies 2 2x2 matrices via traditiona matrix multiplication rules
 function matrixMultiply(matrix1, matrix2) {
     var newMatrix = [];
     var temp = [];
@@ -228,6 +281,7 @@ function matrixMultiply(matrix1, matrix2) {
     return newMatrix;
 }
 
+// Gives option to play rockPaperScissors2() again
 function playAgain(input) {
     input = prompt("Would you like to play again? ('yes' or 'no')");
     input = input.toLowerCase();
@@ -241,6 +295,7 @@ function playAgain(input) {
     }
 }
 
+// Rock, paper, scissors game
 function rockPaperScissors() {
     var player1 = prompt("Player 1's move: ");
     var player2 = prompt("Player 2's move: ");
@@ -270,6 +325,7 @@ function rockPaperScissors() {
     playAgain();
 }
 
+// Another method of rockPaperScissors game
 function rockPaperScissors2() {
     var rules = {
         scissors: {
@@ -301,7 +357,7 @@ function rockPaperScissors2() {
     playAgain();
 }
 
-
+// Detects if someone has won Tic Tac Toe based on given array
 function ticTacToe(userArray) {
     var result = "";
     if (userArray[0][0] === userArray[0][1] && userArray[0][1] === userArray[0][2]) {
