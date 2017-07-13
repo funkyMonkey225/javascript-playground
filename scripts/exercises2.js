@@ -94,3 +94,58 @@ function leetSpeak(text) {
     }
     return translation;
 }
+
+function longLongVowels(text) {
+    var longVow = text.toUpperCase();
+    var savedvowel = "";
+    var s = "";
+    var i = 0;
+    while (i < longVow.length) {              
+        var vowel = longVow[i];          
+        if (vowel === "A") {               
+            if (savedvowel === vowel) {
+                s = s + vowel.repeat(4);        
+            } else {                      
+                s = s + vowel;
+            }           
+            savedvowel = vowel;     
+            
+        } else if (vowel === "E") {
+            if (savedvowel === vowel) {
+                s = s + vowel.repeat(4);
+            } else {
+                s = s + vowel;
+            }
+            savedvowel = vowel;
+
+        } else if (vowel === "I") {
+            if (savedvowel === vowel) {
+                s = s + vowel.repeat(4);  
+            } else {
+                s = s + vowel;
+            }
+            savedvowel = vowel;
+
+        } else if (vowel === "O") {
+            if (savedvowel === vowel) {
+                s = s + vowel.repeat(4);
+            } else {
+                s = s + vowel;
+            }
+            savedvowel = vowel;
+
+        } else if (vowel === "U") {
+            if (savedvowel === vowel) {
+                s = s + vowel.repeat(4);
+            } else {
+                s = s + vowel;
+            }
+            savedvowel = vowel;
+        } else {                       
+            s = s + vowel;
+            savedvowel = "";
+        }
+        i += 1;
+    }
+    console.log(s);          
+}
