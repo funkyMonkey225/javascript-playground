@@ -159,3 +159,15 @@ function sumNumbers(numbers) {
     }
     return total;
 }
+
+function positiveNumbers(numbers) {
+    var i = 0;
+    var positives = [];
+    while (i < numbers.length) {
+        if (numbers[i] >= 0) {
+            positives.push(numbers[i]);
+        }
+        i++;
+    }
+    return positives;
+}
