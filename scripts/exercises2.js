@@ -232,7 +232,7 @@ function playAgain(input) {
     input = prompt("Would you like to play again? ('yes' or 'no')");
     input = input.toLowerCase();
     if (input === "yes") {
-        rockPaperScissors();
+        rockPaperScissors2();
     } else if (input === "no") {
         return console.log("Goodbye!");
     } else {
@@ -265,6 +265,37 @@ function rockPaperScissors() {
     } else {
         console.log("Invalid input. Please choose one: 'rock', 'paper', or 'scissors'");
         rockPaperScissors();
+    }
+    console.log(result);
+    playAgain();
+}
+
+function rockPaperScissors2() {
+    var rules = {
+        scissors: {
+            rock: "Player 2 wins!",
+            paper: "Player 1 wins!",
+            scissors: "Draw."},       
+        paper: {
+            rock: "Player 1 wins!",
+            paper: "Player 2 wins!",
+            scissors: "Draw."},
+        rock: {
+            rock: "Draw.",
+            paper: "Player 2 wins!",
+            scissors: "Player 1 wins!"}
+        }
+    var move1 = prompt("Player 1's move: ");
+    var move2 = prompt("Player 2's move: ");    
+    var result = "";
+    move1 = move1.toLowerCase();
+    move2 = move2.toLowerCase();
+
+    if (move1 in rules) {
+        result = rules[move1][move2];
+    } else {
+        console.log("Invalid input. Please choose one: 'rock', 'paper', or 'scissors'");
+        rockPaperScissors2();
     }
     console.log(result);
     playAgain();
