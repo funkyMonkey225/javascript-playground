@@ -214,8 +214,20 @@ function matrixMultiply(matrix1, matrix2) {
 function rockPaperScissors(player1, player2) {
     player1.toLowerCase();
     player2.toLowerCase();
-    methods = ["rock", "paper", "scissors"];
+   
     if (player1 === player2) {
         return "draw";
-    } else if (player1 === "rock" &&)
+    } else if (player1 === "rock" && player2 === "paper") {
+        return "player 2";
+    } else if (player1 === "rock" && player2 === "scissors") {
+        return "player 1";
+    } else if (player1 === "paper" && player2 === "rock") {
+        return "player 1";
+    } else if (player1 === "paper" && player2 === "scissors") {
+        return "player 2";
+    } else if (player1 === "scissors" && player2 === "rock") {
+        return "player 2";
+    } else if (player1 === "scissors" && player2 === "paper") {
+        return "player 1";
+    }
 }
