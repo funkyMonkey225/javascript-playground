@@ -231,3 +231,57 @@ function rockPaperScissors(player1, player2) {
         return "player 1";
     }
 }
+
+function ticTacToe(userArray) {
+    if (userArray[0][0] === userArray[0][1] && userArray[0][1] === userArray[0][2]) {
+        if (!null) {
+            return userArray[0][0] + " wins!";
+        } else {
+            return null;
+        }
+    } else if (userArray[1][0] === userArray[1][1] && userArray[1][1] === userArray[1][2]) {
+        if (!null) {
+            return userArray[1][0] + " wins!";
+        } else {
+            return null;
+        }
+    } else if (userArray[2][0] === userArray[2][1] && userArray[2][1] === userArray[2][2]) {
+        if (!null) {
+            return userArray[1][0] + " wins!";
+        } else {
+            return null;
+        }
+    } else if (userArray[0][0] === userArray[1][0] && userArray[1][0] === userArray[2][0]) {
+        if (!null) {
+            return userArray[0][0] + " wins!";
+        } else {
+            return null;
+        }
+    } else if (userArray[0][1] === userArray[1][1] && userArray[1][1] === userArray[2][1]) {
+         if (!null) {
+            return userArray[0][1] + " wins!";
+        } else {
+            return null;
+        }
+    } else if (userArray[0][2] === userArray[1][2] && userArray[1][2] === userArray[2][2]) {
+         if (!null) {
+            return userArray[0][2] + " wins!";
+        } else {
+            return null;
+        }
+    } else if (userArray[0][0] === userArray[1][1] && userArray[1][1] === userArray[2][2]) {
+        if (!null) {
+            return userArray[0][2] + " wins!";
+        } else {
+            return null;
+        }
+    } else if (userArray[0][2] === userArray[1][1] && userArray[1][1] === userArray[2][0]) {
+        if (!null) {
+            return userArray[0][2] + " wins!";
+        } else {
+            return null;
+        }
+    } else {
+        return null;
+    }
+}
