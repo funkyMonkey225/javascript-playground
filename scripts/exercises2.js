@@ -171,3 +171,51 @@ function positiveNumbers(numbers) {
     }
     return positives;
 }
+
+function matrixAdd(matrix1, matrix2) {
+    var newMatrix = [];
+    var i = 0;
+    while (i < matrix1.length) {
+        newMatrix.push([]);
+        var j = 0;
+        while (j < matrix1.length) {
+            newMatrix[i].push(matrix1[i][j] + matrix2[i][j]);
+            j += 1;
+        }
+        i += 1;
+    }
+    return newMatrix;
+}
+
+function matrixMultiply(matrix1, matrix2) {
+    var newMatrix = [];
+    var temp = [];
+    var sums = 0;
+    var i = 0;
+    while (i < matrix1.length) {
+        var j = 0;
+        while (j < matrix1.length) {
+            var k = 0;
+            while (k < matrix1.length) {
+                sums = sums + (matrix1[i][k] * matrix2[k][j]);
+                k++;
+            }
+            temp.push(sums);
+            sums = 0;
+            j++;
+        }
+        newMatrix.push(temp);
+        temp = [];
+        i++;
+    }
+    return newMatrix;
+}
+
+function rockPaperScissors(player1, player2) {
+    player1.toLowerCase();
+    player2.toLowerCase();
+    methods = ["rock", "paper", "scissors"];
+    if (player1 === player2) {
+        return "draw";
+    } else if (player1 === "rock" &&)
+}
