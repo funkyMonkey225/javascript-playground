@@ -17,7 +17,7 @@ function printBox(width, height) {
     console.log("*".repeat(width));
     var i = 1;
     while (i <= (height - 2)) {
-        console.log("*" + " " * (height - 2) + "*");
+        console.log("*" + (" ".repeat(height - 2)) + "*");
         i += 1;
     }
     console.log("*".repeat(width));
