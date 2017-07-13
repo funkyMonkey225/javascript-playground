@@ -41,6 +41,38 @@ function factors(number) {
     }
 }
 
+function cipherDecipher(text, offset) {
+    var alpha = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    var y = "";
+    var cipherText = "";              
+    var upperText = text.toUpperCase();
+    var i = 0;
+
+    while (i < text.length) {
+        var char = upperText[i];
+        var j = 0;
+        while (j < alpha.length) {
+            if (char === alpha[j]) {
+                if (j <= (offset-1)) {
+                    y = alpha[j + offset];
+                    cipherText = cipherText + y;
+                    break;   
+                } else {
+                    y = alpha[j - 26 + offset];
+                    cipherText = cipherText + y;
+                    break; 
+                }
+
+            } else if (j === alpha.length - 1) {
+                cipherText = cipherText + char;
+            }
+            j += 1;
+        }
+        i += 1;
+    }
+    console.log(cipherText);
+}
+
 function leetSpeak(text) {
     var lettersToConvert = ["A", "E", "G", "I", "O", "S", "T"];
     var numbers = [4, 3, 6, 1, 0, 5, 7];
