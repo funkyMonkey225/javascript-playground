@@ -149,3 +149,13 @@ function longLongVowels(text) {
     }
     console.log(s);          
 }
+
+function sumNumbers(numbers) {
+    var i = 0;
+    var total = 0;
+    while (i < numbers.length) {
+        total += numbers[i];
+        i++;
+    }
+    return total;
+}
