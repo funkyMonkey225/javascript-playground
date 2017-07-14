@@ -72,8 +72,20 @@ function printNames(name) {
 function goodJob(array) {
     return array.forEach(printNames);
 }
+// Calls a function 3 times
+function call3Times(fun) {
+    fun();
+    fun();
+    fun();
+}
 
+function helloWorld() {
+    console.log("Hello, world!");
+}
 
-
-
-  
+// Calls a function a specified number (num) of times
+function callNTimes(num, fun) {
+    for (var i = 0; i < num; i++) {
+        fun();
+    }
+}
