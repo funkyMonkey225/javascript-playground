@@ -98,3 +98,17 @@ function multiply(a, b) {
 function product(array) {
     return array.reduce(multiply, 1);
 }
+
+function getPrice(obj) {
+    return obj.price;
+}
+
+function sum(a, b) {
+    return a + b;
+}
+
+// Returns the total price of products within an object inside a given array
+function total(array) {
+    var prices = array.map(getPrice);
+    return prices.reduce(sum, 0);
+}
