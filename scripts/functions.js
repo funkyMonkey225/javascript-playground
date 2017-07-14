@@ -112,3 +112,22 @@ function total(array) {
     var prices = array.map(getPrice);
     return prices.reduce(sum, 0);
 }
+
+
+
+// Returns given string plus given separator
+function strJoin(strs, sep) {
+    var str1 = strs.reduce(function (a, sepb) {
+        if (a === "") {
+            return a + sepb;
+        } else if (a !== "") {
+            return a + sep + sepb;
+        }
+    }, "");
+    return str1;
+}
+
+
+
+
+function strMultiply(str, num) {}
