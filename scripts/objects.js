@@ -24,16 +24,33 @@ function divide(lowerCase) {
     return lowerCase.split();
 }
 
-function letterHistogram(phrase) {
-    phrase.toLowerCase();
-    var letterCount = {};
+function letterHistogram(word) {
+    var wordLower = word.toLowerCase();
+    var letters = {};
     
-    for (var i = 0; i < phrase.length; i++) {
-        char = phrase[i];
+    for (var i = 0; i < wordLower.length; i++) {
+        char = wordLower[i];
         if (!(char in letters)) {
             letters[char] = 1;
         } else if (char in letters) {
             letters[char] += 1;
         }
     }
+    return letters;
+}
+
+function wordHistogram(phrase) {
+    var phraseLower = phrase.toLowerCase();
+    var phraseLower = phrase.split(" ");
+    var wordCount = {};
+
+    for (var i = 0; i < phraseLower.length; i++) {
+        word = phraseLower[i];
+        if (!(word in wordCount)) {
+            wordCount[word] = 1;
+        } else if (word in wordCount) {
+            wordCount[word] += 1;
+        }
+    }
+    return wordCount;
 }
