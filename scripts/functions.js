@@ -3,6 +3,17 @@ function positive(num) {
 }
 // Returns only positive numbers in a given array
 function justPositives(array) {
-    var justPositives = array.filter(positive);
-    return justPositives;
+    var justPositive = array.filter(positive);
+    return justPositive;
 }
+
+function isEven(num) {
+    return !(num % 2);
+}
+
+// Returns only even numbers in a given array
+function justEvens(array) {
+    var justEven = array.filter(isEven);
+    return justEven;
+}
+
