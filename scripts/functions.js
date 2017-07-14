@@ -40,25 +40,23 @@ function tempCheck(obj) {
     return  obj.temperature < 70.0;
 }
 
+// Returns array of names of cities whose temerature is under 70 degrees
 function coolCities(array) {
     var result = array.filter(tempCheck);
-    return result;
+    var justNames = cityNames(result);
+    return justNames;
 }
+
 
 function getCityNames(obj) {
     return obj.name;
 }
 
+// Returns array of city names
 function cityNames(array) {
     var result = array.map(getCityNames);
     return result;
 }
 
 
-// for (var i = 0; i < cities.length; i++) {
-//     if (cities[i][temperature] < 70.0) {
-//         coolCities.push(cities[i][name]);
-//     }
-//     return coolCities;
-// }
   
