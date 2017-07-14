@@ -40,11 +40,17 @@ function tempCheck(obj) {
     return  obj.temperature < 70.0;
 }
 
-// Returns array of names of cities whose temerature is under 70 degrees
-function coolCities(array) {
+// Returns array of names of cities whose temperature is under 70 degrees
+function coolCitiesNames(array) {
     var result = array.filter(tempCheck);
     var justNames = cityNames(result);
     return justNames;
+}
+
+// Returns array of names and temperatures of cities whose temperature is under 70 degrees
+function coolCities(array) {
+    var result = array.filter(tempCheck);
+    return result;
 }
 
 
@@ -57,6 +63,17 @@ function cityNames(array) {
     var result = array.map(getCityNames);
     return result;
 }
+
+function printNames(name) {
+    console.log("Good Job, " + name + "!");
+}
+
+// Prints out "Good Job, ____!" for any thing in a given array
+function goodJob(array) {
+    return array.forEach(printNames);
+}
+
+
 
 
   
