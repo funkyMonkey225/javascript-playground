@@ -89,3 +89,12 @@ function callNTimes(num, fun) {
         fun();
     }
 }
+
+function multiply(a, b) {
+    return a * b;
+}
+
+// Returns product of given array
+function product(array) {
+    return array.reduce(multiply, 1);
+}
