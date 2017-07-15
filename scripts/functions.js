@@ -127,7 +127,29 @@ function strJoin(strs, sep) {
     return str1;
 }
 
+function getFirstLetter(obj) {
+    return obj[0];
+}
+// Makes acronym of first letters of words in a given array.
+function acronym(array) {
+    var firstLettStr = array.map(getFirstLetter);
+    return strJoin(firstLettStr, "").toUpperCase();
+}
+
+function range(min, max) {
+  var arr = [];
+  for (var i = min; i < max; i++) {
+    arr.push(i);
+  }
+  return arr;
+}
+
+function strMultiply(str, num) {
+    var range = range(0, num);
+    console.log(strArray);
+    var result = strJoin(strArray, "");
+    return result;
+}
 
 
-
-function strMultiply(str, num) {}
+function box (width, height) 
