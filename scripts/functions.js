@@ -168,8 +168,17 @@ function strMultiply(str, num) {
 
 // }
 
+// Passes each item of an array into a give function
 function forEach(array, fun) {
     for (var i = 0; i < array.length; i++) {
         fun(array[i]);
     }
+}
+
+function map (array, fun) {
+    var result = [];
+    for (var i = 0; i < array.length; i++) {
+        result.push(fun(array[i]));
+    }
+    return result;
 }
