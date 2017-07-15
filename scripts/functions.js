@@ -152,4 +152,24 @@ function strMultiply(str, num) {
 }
 
 
-function box (width, height) 
+// function box (width, height) 
+
+
+// function compare(name) {
+//     var name2;
+//     if (name > name2) {
+//         name2 = name; 
+//         return True;
+//     } else {
+
+//     }
+// }
+// function arraySort1(array) {
+
+// }
+
+function forEach(array, fun) {
+    for (var i = 0; i < array.length; i++) {
+        fun(array[i]);
+    }
+}
