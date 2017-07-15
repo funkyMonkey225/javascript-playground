@@ -168,17 +168,38 @@ function strMultiply(str, num) {
 
 // }
 
-// Passes each item of an array into a give function
+// Passes each item of an array into a given function
 function forEach(array, fun) {
     for (var i = 0; i < array.length; i++) {
         fun(array[i]);
     }
 }
 
+// Passes each item of array into a given function, returns a new array with those results
 function map (array, fun) {
     var result = [];
     for (var i = 0; i < array.length; i++) {
         result.push(fun(array[i]));
+    }
+    return result;
+}
+
+// Passes each item of array into a given function, returns true or false based on function parameters, returns new array with only true items
+function filter(array, fun) {
+    var result = [];
+    for (var i = 0; i < array.length; i++) {
+        if (fun(array[i])) {
+            result.push(array[i]);
+        }
+    }
+    return result;
+}
+
+// Starts with initial value, passes each item of array into given function, returns result
+function reduce(array, combine, initialValue) {
+    var result = initialValue;
+    for (var i = 0; i < array.length; i++) {
+        result = combine(result, array[i]);
     }
     return result;
 }
