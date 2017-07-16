@@ -113,18 +113,11 @@ function total(array) {
     return prices.reduce(sum, 0);
 }
 
-
-
 // Returns given string plus given separator
 function strJoin(strs, sep) {
-    var str1 = strs.reduce(function (a, sepb) {
-        if (a === "") {
-            return a + sepb;
-        } else if (a !== "") {
+    return strs.reduce(function(a, sepb) {
             return a + sep + sepb;
-        }
-    }, "");
-    return str1;
+        })
 }
 
 function getFirstLetter(obj) {
@@ -145,10 +138,11 @@ function range(min, max) {
 }
 
 function strMultiply(str, num) {
-    var range = range(0, num);
-    console.log(strArray);
-    var result = strJoin(strArray, "");
-    return result;
+    var range2 = range(0, num);
+    range2 = range2.map(function(str2) {
+        return str;
+    })
+    return strJoin(range2, "");
 }
 
 
