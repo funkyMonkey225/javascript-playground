@@ -172,6 +172,44 @@ function sortAlpha(array) {
     return array;
 }
 
+function sortLength(array) {
+    array.forEach(function(name) {
+        array.forEach(function(name2) {
+            var swap;
+            var indexName = array.indexOf(name2);
+            var name3 = array[indexName + 1];
+            if (name3 !== undefined) {
+                if (name2.length > name3.length) {
+                    swap = name3;
+                    array[indexName + 1] = name2;
+                    array[indexName] = swap;
+                }
+            }
+            return array;
+        });
+        return array;
+    })
+    return array;
+}
+
+function priceSort(array) {
+    array.forEach(function(obj) {
+        array.forEach(function(obj2) {
+            var swap;
+            var indexName = array.indexOf(obj2);
+
+            if (obj2.price > array[indexName + 1].price) {
+                swap = array[indexName + 1];
+                array[indexName + 1] = obj2;
+                array[indexName] = swap;
+            }
+            return array;
+        });
+        return array;
+    })
+    return array;
+}
+
 // Passes each item of an array into a given function
 function forEach(array, fun) {
     for (var i = 0; i < array.length; i++) {
