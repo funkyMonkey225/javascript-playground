@@ -137,6 +137,7 @@ function range(min, max) {
   return arr;
 }
 
+// Multiplies any string a given number of times
 function strMultiply(str, num) {
     var range2 = range(0, num);
     range2 = range2.map(function(str2) {
@@ -144,7 +145,6 @@ function strMultiply(str, num) {
     })
     return strJoin(range2, "");
 }
-
 
 // function box (width, height) 
 
