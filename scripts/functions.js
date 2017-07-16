@@ -157,12 +157,12 @@ function box (width, height) {
 // Sorts an array in alphabetical order
 function sortAlpha(array) {
     array.forEach(function(name) {
-        array.forEach(function(name) {
+        array.forEach(function(name2) {
             var swap;
-            var indexName = array.indexOf(name);
-            if (name > array[indexName + 1]) {
+            var indexName = array.indexOf(name2);
+            if (name2 > array[indexName + 1]) {
                 swap = array[indexName + 1];
-                array[indexName + 1] = name;
+                array[indexName + 1] = name2;
                 array[indexName] = swap;
             }
             return array;
