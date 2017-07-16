@@ -154,20 +154,23 @@ function box (width, height) {
     }), "\n");
 }
 
-
-// function compare(name) {
-//     var name2;
-//     if (name > name2) {
-//         name2 = name; 
-//         return True;
-//     } else {
-
-//     }
-// }
-
-// function arraySort1(array) {
-
-// }
+// Sorts an array in alphabetical order
+function sortAlpha(array) {
+    array.forEach(function(name) {
+        array.forEach(function(name) {
+            var swap;
+            var indexName = array.indexOf(name);
+            if (name > array[indexName + 1]) {
+                swap = array[indexName + 1];
+                array[indexName + 1] = name;
+                array[indexName] = swap;
+            }
+            return array;
+        });
+        return array;
+    })
+    return array;
+}
 
 // Passes each item of an array into a given function
 function forEach(array, fun) {
