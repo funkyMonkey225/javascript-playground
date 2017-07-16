@@ -154,7 +154,7 @@ function box (width, height) {
     }), "\n");
 }
 
-// Sorts an array in alphabetical order
+// Sorts given array in alphabetical order
 function sortAlpha(array) {
     array.forEach(function(name) {
         array.forEach(function(name2) {
@@ -172,6 +172,7 @@ function sortAlpha(array) {
     return array;
 }
 
+// Sorts given array by length of each string (shortest => longest)
 function sortLength(array) {
     array.forEach(function(name) {
         array.forEach(function(name2) {
@@ -192,16 +193,19 @@ function sortLength(array) {
     return array;
 }
 
+// Sorts given array of objects by price (lowest to highest)
 function priceSort(array) {
     array.forEach(function(obj) {
         array.forEach(function(obj2) {
             var swap;
             var indexName = array.indexOf(obj2);
-
-            if (obj2.price > array[indexName + 1].price) {
-                swap = array[indexName + 1];
-                array[indexName + 1] = obj2;
-                array[indexName] = swap;
+            var obj3 = array[indexName + 1];
+            if (obj3 !== undefined) {
+                if (obj2.price > obj3.price) {
+                    swap = obj3;
+                    array[indexName + 1] = obj2;
+                    array[indexName] = swap;
+                }
             }
             return array;
         });
