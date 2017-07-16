@@ -146,7 +146,13 @@ function strMultiply(str, num) {
     return strJoin(range2, "");
 }
 
-// function box (width, height) 
+// Returns a box composed of "*"s with a given width and height
+function box (width, height) {
+    var range3 = range(0, height);
+    return strJoin(range3.map(function() {
+        return strMultiply("*", width);
+    }), "\n");
+}
 
 
 // function compare(name) {
@@ -158,6 +164,7 @@ function strMultiply(str, num) {
 
 //     }
 // }
+
 // function arraySort1(array) {
 
 // }
