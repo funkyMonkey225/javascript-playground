@@ -230,6 +230,17 @@ function map (array, fun) {
     return result;
 }
 
+function map2 (array, fun) {
+    return array.reduce(fun, []);
+}
+
+function map3 (array, fun) {
+    var result = [];
+    array.forEach(function(x) {
+        result.push(fun(x));
+    })
+    return result;
+}
 // Passes each item of array into a given function, returns true or false based on function parameters, returns new array with only true items
 function filter(array, fun) {
     var result = [];
@@ -241,6 +252,17 @@ function filter(array, fun) {
     return result;
 }
 
+function filter2(array, fun) {
+    return array.reduce(fun, []);
+}
+
+function filter3(array, fun) {
+    var result = [];
+    array.forEach(function(x) {
+        result.push(fun(x));
+    })
+}
+
 // Starts with initial value, passes each item of array into given function, returns result
 function reduce(array, combine, initialValue) {
     var result = initialValue;
@@ -248,4 +270,9 @@ function reduce(array, combine, initialValue) {
         result = combine(result, array[i]);
     }
     return result;
+}
+
+function cipher(text) {
+    var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
+    var result = '';
 }
