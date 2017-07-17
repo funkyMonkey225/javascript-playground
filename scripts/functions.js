@@ -3,8 +3,7 @@ function positive(num) {
 }
 // Returns only positive numbers in a given array
 function justPositives(array) {
-    var justPositive = array.filter(positive);
-    return justPositive;
+    return array.filter(positive);
 }
 
 function isEven(num) {
@@ -231,7 +230,7 @@ function map (array, fun) {
 }
 
 function map2 (array, fun) {
-    return array.reduce(fun, []);
+    return array.reduce(array, fun, []);
 }
 
 function map3 (array, fun) {
@@ -253,7 +252,13 @@ function filter(array, fun) {
 }
 
 function filter2(array, fun) {
-    return array.reduce(fun, []);
+    var result = array.reduce(function(num) {
+        if (fun(num)) {
+            total.push(num);
+        }
+        return total;
+    }, []);
+    return result;
 }
 
 function filter3(array, fun) {
@@ -274,7 +279,8 @@ function reduce(array, combine, initialValue) {
     }
     return result;
 }
-// TRAVHF
+
+// Rewritten Caesar Cipher function wihtout for loop
 function cipher(text) {
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
     text = text.toUpperCase();
