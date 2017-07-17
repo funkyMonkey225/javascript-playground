@@ -274,8 +274,18 @@ function reduce(array, combine, initialValue) {
     }
     return result;
 }
-
+// TRAVHF
 function cipher(text) {
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('')
-    var result = '';
+    text = text.toUpperCase();
+    text = text.split('');
+    var result = text.map(function(letter) {
+        var index = alphabet.indexOf(letter);
+        var newIndex = index + 13;
+        if (newIndex >= alphabet.length) {
+            newIndex -= 26;
+        }
+        return alphabet[newIndex];
+    })
+    return result.join('');
 }
