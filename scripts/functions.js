@@ -259,8 +259,11 @@ function filter2(array, fun) {
 function filter3(array, fun) {
     var result = [];
     array.forEach(function(x) {
-        result.push(fun(x));
+        if (fun(x)) {
+            result.push(x);
+        }
     })
+    return result;
 }
 
 // Starts with initial value, passes each item of array into given function, returns result
