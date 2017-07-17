@@ -6,6 +6,12 @@ function justPositives(array) {
     return array.filter(positive);
 }
 
+function makeFilter(fn) {
+    return function(numArray) {
+        return numArray.filter(fn);
+    }
+}
+
 function isEven(num) {
     return !(num % 2);
 }
@@ -16,6 +22,9 @@ function justEvens(array) {
     return justEven;
 }
 
+var evens = makeFilter(isEven);
+evens([1, 3, 6, 7, -10, 0]);
+
 function squared(num) {
     return num * num;
 }
@@ -25,6 +34,13 @@ function squaredArray(array) {
     var result = array.map(squared);
     return result;
 }
+
+function makeTransformer (fn) {
+    return function(array) {
+        return array.map(fn);
+    }
+}
+
 
 var cities = [
     { name: 'Beaumont', temperature: 97.0 },
