@@ -141,7 +141,7 @@ function total2(array) {
 function strJoin(strs, sep) {
     return strs.reduce(function(a, sepb) {
             return a + sep + sepb;
-        })
+    })
 }
 
 function getFirstLetter(obj) {
@@ -217,6 +217,19 @@ function sortLength(array) {
     return array;
 }
 
+function sortThoseNumbers(a, b) {
+    var result = 0;
+    if (a < b) {
+        result = -1;
+    } else if (a === b) {
+        result = 1;
+    }
+    return result;
+}
+
+function sortNumbers(array) {
+    return array.sort(sortThoseNumbers);
+}
 // Sorts given array of objects by price (lowest to highest)
 function priceSort(array) {
     array.forEach(function(obj) {
