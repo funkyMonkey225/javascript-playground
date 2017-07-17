@@ -64,8 +64,7 @@ function coolCitiesNames(array) {
 
 // Returns array of names and temperatures of cities whose temperature is under 70 degrees
 function coolCities(array) {
-    var result = array.filter(tempCheck);
-    return result;
+    return array.filter(tempCheck);
 }
 
 
@@ -87,6 +86,8 @@ function printNames(name) {
 function goodJob(array) {
     return array.forEach(printNames);
 }
+
+
 // Calls a function 3 times
 function call3Times(fun) {
     fun();
@@ -126,6 +127,14 @@ function sum(a, b) {
 function total(array) {
     var prices = array.map(getPrice);
     return prices.reduce(sum, 0);
+}
+
+function sum2(a, b) {
+    return a + b.price;
+}
+
+function total2(array) {
+    return prices.reduce(sum2, 0);
 }
 
 // Returns given string plus given separator
