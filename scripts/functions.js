@@ -217,7 +217,7 @@ function sortLength(array) {
     return array;
 }
 
-function sortThoseNumbers(a, b) {
+function numberComparator(a, b) {
     var result = 0;
     if (a < b) {
         result = -1;
@@ -228,8 +228,15 @@ function sortThoseNumbers(a, b) {
 }
 
 function sortNumbers(array) {
-    return array.sort(sortThoseNumbers);
+    return array.sort(numberComparator);
 }
+
+function sortByLength(array) {
+    return array.sort(function (a, b) {
+        return numberComparator(a.length, b.length);
+    })
+}
+
 // Sorts given array of objects by price (lowest to highest)
 function priceSort(array) {
     array.forEach(function(obj) {
@@ -249,6 +256,12 @@ function priceSort(array) {
         return array;
     })
     return array;
+}
+
+function sortByPrice(array) {
+    return array.sort(function (a, b) {
+        return numberComparator(a.price, b.price);
+    })
 }
 
 // Passes each item of an array into a given function
