@@ -726,8 +726,22 @@ var dataz = days.map(function (day) {
   return data;
 });
 
+
+// It might be useful to add a var that holds the key names:
+var KEY = {
+    open: "1. open",
+    high: "2. high",
+    low: "3. low",
+    close: "4. close",
+    volume: "5. volume",
+    date: "date"
+};
+
+
+
+// Then, we can use KEY throughout
 function getSum(tally, currentElement) {
-    return tally + Number(currentElement["1. open"]);
+    return tally + Number(currentElement[KEY.open]);
 }
 
 
@@ -742,7 +756,7 @@ function getSum2(propName) {
     }
 }
 
-var openSum = getSum2("1. open");
+var openSum = getSum2(KEY.open);
 
 function calculateAverage(num) {
     return num / dataz.length;
@@ -756,13 +770,13 @@ function averageMaker(fn) {
 
 var openAverage = averageMaker(openSum);
 
-var highSum = getSum2("2. high");
+var highSum = getSum2(KEY.high);
 var highAverage = averageMaker(highSum);
 
-var lowSum = getSum2("3. low");
+var lowSum = getSum2(KEY.low);
 var lowAverage = averageMaker(lowSum);
 
-var closeSum = getSum2("4. close");
+var closeSum = getSum2(KEY.close);
 var closeAverage = averageMaker(closeSum);
 
 
@@ -789,11 +803,13 @@ function createComparator(propName) {
     }
 }
 
+// Q: could you use the createComparator function
+// to create `lowComparator`?
 function lowComparator(a, b) {
     var result = 0;
-    if (a["3. low"] < b["3. low"]) {
+    if (a[KEY.low] < b[KEY.low]) {
         result = -1;
-    } else if (a["3. low"] > b["3. low"]) {
+    } else if (a[KEY.low] > b[KEY.low]) {
         result = 1;
     }
     return result;
@@ -803,7 +819,7 @@ function lowComparator(a, b) {
 var numberComparator = createComparator("cool");
 var cool = [{"cool": 10}, {"cool": -4}, {"cool": 100}]
 
-var highComparator = createComparator("2. high");
+var highComparator = createComparator(KEY.high);
 var highSorter = sorter(highComparator);
 
 function printTheFirst(fn, propName, name) {
@@ -820,10 +836,10 @@ function printTheFirst(fn, propName, name) {
 //     }
 // }
 
-var printHighestHigh = printTheFirst(highSorter, "2. high", "high");
+var printHighestHigh = printTheFirst(highSorter, KEY.high, "high");
 
 var lowSorter = sorter(lowComparator);
-var printLowestLow = printTheFirst(lowSorter, "3. low", "low");
+var printLowestLow = printTheFirst(lowSorter, KEY.low, "low");
 
 function openClose(array) {
     return array.map(objectMaker);
@@ -831,9 +847,9 @@ function openClose(array) {
 
 function objectMaker(obj){
     var result = {};
-    result["date"] = obj["date"];
-    result["open"] = obj["1. open"];
-    result["close"] = obj["4. close"];
+    result["date"] = obj[KEY.date];
+    result["open"] = obj[KEY.open];
+    result["close"] = obj[KEY.close];
     return result;
 }
 
