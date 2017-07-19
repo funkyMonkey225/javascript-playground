@@ -723,7 +723,7 @@ var days = Object.keys(stocks);
 var dataz = days.map(function (day) {
     var data = stocks[day];
     data["date"] = day;
-  return data;
+    return data;
 });
 
 
@@ -787,7 +787,7 @@ function sorter(comparator) {
 }
 
 
-function createComparator(propName) {
+function createComparator(propName, less, greater) {
     return function (a, b) {
         var result = 0;
         if (a[propName] < b[propName]) {
@@ -799,41 +799,21 @@ function createComparator(propName) {
     }
 }
 
-// Q: could you use the createComparator function
-// to create `lowComparator`?
-function lowComparator(a, b) {
-    var result = 0;
-    if (a[KEY.low] < b[KEY.low]) {
-        result = -1;
-    } else if (a[KEY.low] > b[KEY.low]) {
-        result = 1;
-    }
-    return result;
-}
 
-
-var numberComparator = createComparator("cool");
-var cool = [{"cool": 10}, {"cool": -4}, {"cool": 100}]
-
-var highComparator = createComparator(KEY.high);
+var highComparator = createComparator(KEY.high, 1, -1);
 var highSorter = sorter(highComparator);
 
 function printTheFirst(fn, propName, name) {
     return function(array) {
         var newArray = highSorter(array);
-        console.log("The " + name + "est " + name + " was on " + newArray[0]["date"] + " " + name + ": " + newArray[0][propName])
+        console.log("The " + name + "est " + name + " was on " + newArray[0]["date"] + " " + name + ": " + newArray[0][propName]);
     }
 }
 
-// function printTheFirst(fn) {
-//     return function(array) {
-//         var newArray = fn(array);
-//         return newArray[0];
-//     }
-// }
 
 var printHighestHigh = printTheFirst(highSorter, KEY.high, "high");
 
+var lowComparator = createComparator(KEY.low, -1, 1);
 var lowSorter = sorter(lowComparator);
 var printLowestLow = printTheFirst(lowSorter, KEY.low, "low");
 
@@ -841,7 +821,7 @@ function openClose(array) {
     return array.map(objectMaker);
 }
 
-function objectMaker(obj){
+function objectMaker(obj) {
     var result = {};
     result["date"] = obj[KEY.date];
     result["open"] = obj[KEY.open];
