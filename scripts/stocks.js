@@ -780,10 +780,6 @@ var closeSum = getSum2(KEY.close);
 var closeAverage = averageMaker(closeSum);
 
 
-
-
-
-
 function sorter(comparator) {
     return function(array) {
         return array.sort(comparator);
