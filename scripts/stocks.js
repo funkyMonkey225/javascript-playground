@@ -766,10 +766,6 @@ var closeSum = getSum2("4. close");
 var closeAverage = averageMaker(closeSum);
 
 
-
-
-
-
 function sorter(comparator) {
     return function(array) {
         return array.sort(comparator);
